@@ -1,0 +1,23 @@
+{
+    "name": "Eliminar pantalla de suscripción en webs",
+    "version": "1.0",
+    "description": "Extensión para quitar automaticamente la pantalla de suscripción en sitios web",
+    "browser_action": {
+        "default_title": "Eliminar Pop-up",
+        "default_icon": "icon.png"
+    },
+    "permissions": [ 
+        "activeTab",
+        "<all_urls>" 
+    ],
+    "background": {
+        "persistent": false,
+        "scripts": ["scripts/background.js"]
+    },
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "run_at": "document_idle",
+        "js": ["scripts/content.js"]
+    }],
+    "manifest_version": 2
+}
